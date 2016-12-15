@@ -32,7 +32,7 @@ function sds_is_wp_support() {
 }
 
 function sds_enqeue_scripts() {
-if ( is_wp_support() ) {
+if ( sds_is_wp_support() ) {
 	wp_enqueue_script( 'modal-referrer', __DIR__. '/modal-referrer.js', array( 'jquery' ) );
 	wp_enqueue_style( 'modal-referrer', __DIR__ . '/sds_wp_modal.css' );
 	}
