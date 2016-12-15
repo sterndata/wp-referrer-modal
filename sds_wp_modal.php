@@ -41,6 +41,9 @@ if ( sds_is_wp_support() ) {
 add_action( 'wp_enqueue_scripts', 'sds_enqueue_scripts' );
 
 function sds_wp_modal_filter( $content ) {
+	if ( ! sds_is_wp_support() ) {
+		return $content;
+	}
         ob_start();
         ?>
 <!-- Modal -->
