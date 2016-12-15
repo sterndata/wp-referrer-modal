@@ -31,7 +31,7 @@ function sds_is_wp_support() {
         return false;
 }
 
-function sds_enqeue_scripts() {
+function sds_enqueue_scripts() {
 if ( sds_is_wp_support() ) {
 	wp_enqueue_script( 'modal-referrer', __DIR__. '/modal-referrer.js', array( 'jquery' ) );
 	wp_enqueue_style( 'modal-referrer', __DIR__ . '/sds_wp_modal.css' );
