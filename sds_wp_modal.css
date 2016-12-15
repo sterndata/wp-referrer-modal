@@ -1,0 +1,12 @@
+.sds-modal-content {
+  background:aliceblue;
+        color: #000;
+        text-align:center;
+}
+.sds-modal-header {
+        font-weight:bold;
+}
+
+.sds-modal-body {}
+
+.sds-modal-footer {}
