@@ -59,7 +59,7 @@ function sds_wp_modal_filter( $content ) {
 <p>It seems you've come here from a link on WordPress.org.<br>
                         If you're following up on a support question that we were discussing in a forum, please note:</p>
                         <p><em>What happens in the forums stays in the forums.</em></p>
-            <p><strong>Also be aware that if you bring a forum argument here or to any other moderator’s site  is a violation of <a href="https://codex.wordpress.org/Forum_Welcome#The_Bad_Stuff" target=_blank> forum rules</a>.</strong>
+            <p><strong>Also be aware that bringing a forum argument here or to any other moderator’s site  is a violation of <a href="https://codex.wordpress.org/Forum_Welcome#The_Bad_Stuff" target=_blank> forum rules</a>.</strong>
 	</p>
 <p>If, on the other hand, you're here to see who I am and what I'm up to, read on!</p>
 </div>
