@@ -24,31 +24,20 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA	02110-1301, USA.
 *******************************/
 
-function sds_is_wp_support() {
-	if ( preg_match( '/wordpress.org/', $_SERVER['HTTP_REFERER'] ) ) {
-		return true;
-	}
-		return false;
-}
 
 function sds_enqueue_scripts() {
-	if ( true ) {
-		$the_plugin = plugins_url( '', __FILE__ );
-		wp_enqueue_script( 'jquery-ui-core' );
-		wp_enqueue_script( 'jquery-ui-dialog ' );
-		wp_enqueue_script( 'modal-referrer', $the_plugin . '/modal-referrer.js', array( 'jquery', 'jquery-ui-dialog' ) );
-		wp_enqueue_style( 'jquery-ui' , 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
-		wp_enqueue_style( 'modal-referrer', $the_plugin . '/sds_wp_modal.css' );
-	}
+	$the_plugin = plugins_url( '', __FILE__ );
+	wp_enqueue_script( 'jquery-ui-core' );
+	wp_enqueue_script( 'jquery-ui-dialog ' );
+	wp_enqueue_script( 'modal-referrer', $the_plugin . '/modal-referrer.js', array( 'jquery', 'jquery-ui-dialog' ) );
+	wp_enqueue_style( 'jquery-ui' , 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
+	wp_enqueue_style( 'modal-referrer', $the_plugin . '/sds_wp_modal.css' );
 }
 add_action( 'wp_enqueue_scripts', 'sds_enqueue_scripts' );
 
 function sds_wp_modal_filter() {
-//	if ( ! sds_is_wp_support() ) {
-//		return;
-//	}
-		ob_start();
-		?>
+	ob_start();
+	?>
 <!-- Modal -->
 <div id="sdsModal" class="modal fade" role="dialog">
 <div class="modal-dialog">
