@@ -1,5 +1,6 @@
 jQuery( document ).ready(function() {
-
+var ref = document.referrer;
+if (ref.match(/^https?:\/\/([^\/]+\.)?wordpress\.org(\/|$)/i)) {
   jQuery( function() {
     jQuery( "#sdsModal" ).dialog({
       modal: true,
@@ -12,6 +13,6 @@ jQuery( document ).ready(function() {
       }
     });
   } ); 
-
+} // if ref.match
 
 })

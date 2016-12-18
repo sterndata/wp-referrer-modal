@@ -32,7 +32,7 @@ function sds_is_wp_support() {
 }
 
 function sds_enqueue_scripts() {
-	if ( sds_is_wp_support() ) {
+	if ( true ) {
 		$the_plugin = plugins_url( '', __FILE__ );
 		wp_enqueue_script( 'jquery-ui-core' );
 		wp_enqueue_script( 'jquery-ui-dialog ' );
@@ -44,9 +44,9 @@ function sds_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'sds_enqueue_scripts' );
 
 function sds_wp_modal_filter() {
-	if ( ! sds_is_wp_support() ) {
-		return;
-	}
+//	if ( ! sds_is_wp_support() ) {
+//		return;
+//	}
 		ob_start();
 		?>
 <!-- Modal -->
