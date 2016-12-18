@@ -25,54 +25,51 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA	02110-1301, USA.
 *******************************/
 
 function sds_is_wp_support() {
-        if (preg_match( '/wordpress.org/', $_SERVER['HTTP_REFERER'] ))  {
-                return true;
-        }
-        return false;
+	if ( preg_match( '/wordpress.org/', $_SERVER['HTTP_REFERER'] ) ) {
+		return true;
+	}
+		return false;
 }
 
 function sds_enqueue_scripts() {
-if ( sds_is_wp_support() ) {
-	$the_plugin = plugins_url( '', __FILE__ );
-        wp_enqueue_script( 'bootstrap' , $the_plugin . '/js/bootstrap.min.js', array( 'jquery' ) );
-         wp_enqueue_style( '', $the_plugin . '/css/bootstrap.min.css' );
-	wp_enqueue_script( 'modal-referrer', $the_plugin. '/modal-referrer.js', array( 'jquery', 'bootstrap' ) );
-	wp_enqueue_style( 'modal-referrer', $the_plugin . '/sds_wp_modal.css' );
+	if ( sds_is_wp_support() ) {
+		$the_plugin = plugins_url( '', __FILE__ );
+		wp_enqueue_script( 'jquery-ui-core' );
+		wp_enqueue_script( 'jquery-ui-dialog ' );
+		wp_enqueue_script( 'modal-referrer', $the_plugin . '/modal-referrer.js', array( 'jquery', 'jquery-ui-dialog' ) );
+		wp_enqueue_style( 'jquery-ui' , 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
+		wp_enqueue_style( 'modal-referrer', $the_plugin . '/sds_wp_modal.css' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'sds_enqueue_scripts' );
 
-function sds_wp_modal_filter( ) {
+function sds_wp_modal_filter() {
 	if ( ! sds_is_wp_support() ) {
 		return;
 	}
-        ob_start();
-        ?>
+		ob_start();
+		?>
 <!-- Modal -->
 <div id="sdsModal" class="modal fade" role="dialog">
 <div class="modal-dialog">
 <!-- Modal content-->
 <div class="sds-modal-content">
 <div class="sds-modal-header">
-<button type="button" class="close" data-dismiss="modal">&times;</button>
 <h4 class="modal-title">Hello, fellow WordPresser!</h4>
 </div>
 <div class="modal-body">
 <p>It seems you've come here from a link on WordPress.org.<br>
-                        If you're following up on a support question that we were discussing in a forum, please note:</p>
-                        <p><em>What happens in the forums stays in the forums.</em></p>
-            <p><strong>Also be aware that bringing a forum argument here or to any other moderator’s site  is a violation of <a href="https://codex.wordpress.org/Forum_Welcome#The_Bad_Stuff" target=_blank> forum rules</a>.</strong>
-	</p>
+If you're following up on a support question that we were discussing in a forum, please note:</p>
+<p><em>What happens in the forums stays in the forums.</em></p>
+<p><strong>Also be aware that bringing a forum argument here or to any other moderator’s site  is a violation of <a href="https://codex.wordpress.org/Forum_Welcome#The_Bad_Stuff" target=_blank> forum rules</a>.</strong>
+</p>
 <p>If, on the other hand, you're here to see who I am and what I'm up to, read on!</p>
-</div>
-<div class="modal-footer">
-<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
 </div>
 
 </div>
 </div>
 <?php
-        echo ob_get_clean();
+		echo ob_get_clean();
 }
 add_filter( 'wp_footer', 'sds_wp_modal_filter' );
