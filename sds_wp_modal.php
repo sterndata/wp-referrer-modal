@@ -42,9 +42,9 @@ if ( sds_is_wp_support() ) {
 }
 add_action( 'wp_enqueue_scripts', 'sds_enqueue_scripts' );
 
-function sds_wp_modal_filter( $content ) {
+function sds_wp_modal_filter( ) {
 	if ( ! sds_is_wp_support() ) {
-		return $content;
+		return;
 	}
         ob_start();
         ?>
@@ -73,6 +73,6 @@ function sds_wp_modal_filter( $content ) {
 </div>
 </div>
 <?php
-        return $content . ob_get_clean();
+        echo ob_get_clean();
 }
-add_filter( 'the_content', 'sds_wp_modal_filter' );
+add_filter( 'wp_footer', 'sds_wp_modal_filter' );
