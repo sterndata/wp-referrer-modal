@@ -31,7 +31,7 @@ function sds_enqueue_scripts() {
 	wp_enqueue_script( 'jquery-ui-dialog ' );
 	wp_enqueue_script( 'modal-referrer', $the_plugin . '/modal-referrer.js', array( 'jquery', 'jquery-ui-dialog' ) );
 	wp_enqueue_style( 'jquery-ui' , 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
-	wp_enqueue_style( 'modal-referrer', $the_plugin . '/sds_wp_modal.css' );
+	wp_enqueue_style( 'modal-referrer', $the_plugin . '/sds-wp-modal.css' );
 }
 add_action( 'wp_enqueue_scripts', 'sds_enqueue_scripts' );
 
