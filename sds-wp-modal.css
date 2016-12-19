@@ -1,3 +1,6 @@
+#sdsModal {
+   display: none;
+}
 .sds-modal-content {
 	background:aliceblue;
         color: #000;
