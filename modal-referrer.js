@@ -6,7 +6,8 @@ if (ref.match(/^https?:\/\/([^\/]+\.)?wordpress\.org(\/|$)/i)) {
     jQuery( "#sdsModal" ).dialog({
       modal: true,
       show: true,
-      width: 500,
+      width: 'auto',
+      maxWidth: '80%',
       buttons: {
         Ok: function() {
           jQuery( this ).dialog( "close" );
