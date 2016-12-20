@@ -18,3 +18,7 @@
 .ui-dialog {
    background: aliceblue;
 }
+.ui-widget-overlay {
+   opacity:.6;
+   background: #000;
+}
