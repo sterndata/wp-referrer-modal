@@ -62,3 +62,13 @@ If you're following up on a support question that we were discussing in a forum,
 		echo ob_get_clean();
 }
 add_filter( 'wp_footer', 'sds_wp_modal_filter' );
+
+
+/* 
+ * autoptimize
+*/
+
+add_filter('autoptimize_filter_css_exclude','sds_ao_override_cssexclude',10,1);
+function sds_ao_override_cssexclude($exclude) {
+	return $exclude.",sds-wp-modal.css";
+}
