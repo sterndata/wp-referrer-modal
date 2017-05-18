@@ -3,7 +3,7 @@ Contributors: sterndata
 Donate link: https://www.sterndata.com/credit-card-payments/
 Tags: referrer, modal
 Requires at least: 4.1
-Tested up to: 4.7
+Tested up to: 4.7.5
 Stable tag: 2016.12.15
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -22,8 +22,7 @@ You know how to install plugin, don't you?
 
 = To Do List =
 
-* Separate the text from the plugin and store as an option
-* Add option to use other referrers and have text linked to the referrer
+* see list on github 
 
 == Screenshots ==
 

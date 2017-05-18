@@ -3,7 +3,7 @@
  * Plugin Name: WP Referrer Modal
  * Plugin URI:	https://github.com/sterndata/wp-referrer-modal
  * Description: warn about follow homes from wordpress.org
- * Version: 0.6
+ * Version: 0.7
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -39,32 +39,14 @@ function sds_wp_modal_filter() {
 	ob_start();
 	?>
 <!-- Modal -->
-<div id="sdsModal" class="modal fade" role="dialog">
-<div class="modal-dialog">
-<!-- Modal content-->
-<div class="sds-modal-content">
-<div class="sds-modal-header">
-<h4 class="modal-title">Hello, fellow WordPresser!</h4>
-</div>
-<div class="modal-body">
-<p>It seems you've come here from a link on WordPress.org.<br>
-If you're following up on a support question that we were discussing in a forum, please note:</p>
-<p><em>What happens in the forums stays in the forums.</em></p>
-<p><strong>Also be aware that bringing a forum argument here or to any other moderator’s site  is a violation of <a href="https://codex.wordpress.org/Forum_Welcome#The_Bad_Stuff" target=_blank> forum rules</a>.</strong>
-</p>
-<p>If, on the other hand, you're here to see who I am and what I'm up to, read on!</p>
-</div>
-</div>
-
-</div>
-</div>
+<?php include_once( plugin_dir_path( __FILE__ ) . '/modal-message.php' ); ?>
 <?php
 		echo ob_get_clean();
 }
 add_filter( 'wp_footer', 'sds_wp_modal_filter' );
 
 
-/* 
+/*
  * autoptimize
 */
 
