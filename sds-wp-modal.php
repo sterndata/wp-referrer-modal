@@ -75,7 +75,7 @@ function sds_wp_referrer_modal_sanitize( $option ) {
 	$allowed_protocols = array(
 		'http',
 		'https',
-		mailto,
+		'mailto',
 	);
 	$allowed_html = array(
 			'a' => array(
