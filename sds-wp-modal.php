@@ -72,7 +72,6 @@ function sds_wp_referrer_modal_register_options_page() {
 add_action( 'admin_menu', 'sds_wp_referrer_modal_register_options_page' );
 
 function sds_wp_referrer_modal_sanitize( $option ) {
-	$option = esc_html( $option );
 	return $option;
 }
 function sds_wp_referrer_modal_options_page() {
@@ -90,7 +89,9 @@ function sds_wp_referrer_modal_options_page() {
   </tr>
 	<tr valign="top">
 	<th scope="row"><label for="sds_wp_referrer-modal_body">Body</label></th>
-	<td><input type="text" id="sds_wp_referrer-modal_body" name="sds_wp_referrer_modal_body" value="<?php echo  get_option( 'sds_wp_referrer_modal_body' ); ?>" /></td>
+	<td><textarea rows="10" cols="80"  id="sds_wp_referrer-modal_body" name="sds_wp_referrer_modal_body">
+		<?php echo  get_option( 'sds_wp_referrer_modal_body' ); ?>
+	</textarea></td>
 	</tr>
   </table>
 	<?php  submit_button(); ?>
