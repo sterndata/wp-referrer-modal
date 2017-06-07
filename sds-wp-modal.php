@@ -102,7 +102,6 @@ function sds_wp_referrer_modal_sanitize( $option ) {
 	return wp_kses( $option, $allowed_html, $allowed_protocols );
 }
 
-<?php
 function sds_wp_referrer_modal_add_settings_link( $links ) {
     $settings_link = '<a href="options-general.php?page=sds_wp_referrer_modal">' . __( 'Settings' ) . '</a>';
     array_push( $links, $settings_link );
