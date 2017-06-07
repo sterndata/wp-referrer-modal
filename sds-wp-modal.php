@@ -3,7 +3,7 @@
  * Plugin Name: WP Referrer Modal
  * Plugin URI:	https://github.com/sterndata/wp-referrer-modal
  * Description: warn about follow homes from wordpress.org
- * Version: 0.7
+ * Version: 0.99
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -72,13 +72,13 @@ function sds_wp_referrer_modal_register_options_page() {
 add_action( 'admin_menu', 'sds_wp_referrer_modal_register_options_page' );
 
 function sds_wp_referrer_modal_sanitize( $option ) {
-	return $option;
+	return esc_textarea( )$option );
 }
 function sds_wp_referrer_modal_options_page() {
 ?>
   <div>
 	<?php screen_icon(); ?>
-  <h2>WP Referrer Modal</h2>
+  <h2 style="margin-top:1em;">WP Referrer Modal</h2>
   <form method="post" action="options.php">
 	<?php settings_fields( 'sds_wp_referrer_modal_options_group' ); ?>
   <h3>Set Title and Body for the modal</h3>
@@ -89,9 +89,7 @@ function sds_wp_referrer_modal_options_page() {
   </tr>
 	<tr valign="top">
 	<th scope="row"><label for="sds_wp_referrer-modal_body">Body</label></th>
-	<td><textarea rows="10" cols="80"  id="sds_wp_referrer-modal_body" name="sds_wp_referrer_modal_body">
-		<?php echo  get_option( 'sds_wp_referrer_modal_body' ); ?>
-	</textarea></td>
+	<td><textarea rows="10" cols="80"  id="sds_wp_referrer-modal_body" name="sds_wp_referrer_modal_body"><?php echo get_option( 'sds_wp_referrer_modal_body' ); ?></textarea></td>
 	</tr>
   </table>
 	<?php  submit_button(); ?>

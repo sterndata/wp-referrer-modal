@@ -1,4 +1,10 @@
 <?php
+/*
+ * display the messsages
+ *
+ * if there' not already set, update the options to use the default modal-message
+ */
+
 $title = get_option( 'sds_wp_referrer_modal_title' );
 $body = get_option( 'sds_wp_referrer_modal_body' );
 if ( ! $title ) {
