@@ -72,7 +72,7 @@ function sds_wp_referrer_modal_register_options_page() {
 add_action( 'admin_menu', 'sds_wp_referrer_modal_register_options_page' );
 
 function sds_wp_referrer_modal_sanitize( $option ) {
-	return esc_textarea( $option );
+	return $option ;
 }
 function sds_wp_referrer_modal_options_page() {
 ?>
