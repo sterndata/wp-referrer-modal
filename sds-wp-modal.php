@@ -72,7 +72,34 @@ function sds_wp_referrer_modal_register_options_page() {
 add_action( 'admin_menu', 'sds_wp_referrer_modal_register_options_page' );
 
 function sds_wp_referrer_modal_sanitize( $option ) {
-	return $option ;
+	$allowed_protocols = array(
+		'http',
+		'https',
+		mailto,
+	);
+	$allowed_html = array(
+			'a' => array(
+					'class' => array(),
+					'href'  => array(),
+					'rel'   => array(),
+					'title' => array(),
+				),
+
+				'b' => array(),
+				'em' => array(),
+				'h1' => array(),
+				'h2' => array(),
+				'h3' => array(),
+				'h4' => array(),
+				'h5' => array(),
+				'h6' => array(),
+				'i' => array(),
+				'p' => array(
+					'class' => array(),
+				),
+				'strong' => array(),
+			);
+	return wp_kses( $option, $allowed_html, $allowed_protocols );
 }
 function sds_wp_referrer_modal_options_page() {
 ?>
