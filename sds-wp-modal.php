@@ -101,16 +101,16 @@ function sds_wp_referrer_modal_sanitize( $option ) {
 			);
 	return wp_kses( $option, $allowed_html, $allowed_protocols );
 }
-function sds_wp_referrer_modal_action_links( $links ) {
 
-	$links = array_merge( array(
-		'<a href="' . esc_url( admin_url( '/options-general.php' ) ) . '">' . __( 'Settings', 'textdomain' ) . '</a>'
-	), $links );
-
-	return $links;
-
+<?php
+function sds_wp_referrer_modal_add_settings_link( $links ) {
+    $settings_link = '<a href="options-general.php?page=sds_wp_referrer_modal">' . __( 'Settings' ) . '</a>';
+    array_push( $links, $settings_link );
+  	return $links;
 }
-add_action( 'plugin_action_links_' . plugin_basename( __FILE__ ), 'sds_wp_referrer_modal_plugin_action_links' );
+$plugin = plugin_basename( __FILE__ );
+add_filter( "plugin_action_links_$plugin", 'sds_wp_referrer_mdoal_add_settings_link' );
+?>
 
 function sds_wp_referrer_modal_options_page() {
 ?>
