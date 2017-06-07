@@ -108,7 +108,7 @@ function sds_wp_referrer_modal_add_settings_link( $links ) {
   	return $links;
 }
 $plugin = plugin_basename( __FILE__ );
-add_filter( "plugin_action_links_$plugin", 'sds_wp_referrer_mdoal_add_settings_link' );
+add_filter( "plugin_action_links_$plugin", 'sds_wp_referrer_modal_add_settings_link' );
 
 function sds_wp_referrer_modal_options_page() {
 ?>
