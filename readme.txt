@@ -4,7 +4,7 @@ Donate link: https://www.sterndata.com/credit-card-payments/
 Tags: referrer, modal
 Requires at least: 4.1
 Tested up to: 4.7.5
-Stable tag: 2016.12.15
+Stable tag: 0.99
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
