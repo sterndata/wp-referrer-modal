@@ -148,7 +148,6 @@ add_filter( "plugin_action_links_$plugin", 'sds_wp_referrer_modal_add_settings_l
 function sds_wp_referrer_modal_options_page() {
 ?>
   <div>
-	<?php screen_icon(); ?>
   <h2 style="margin-top:1em;">WP Referrer Modal</h2>
   <form method="post" action="options.php">
 	<?php settings_fields( 'sds_wp_referrer_modal_options_group' ); ?>
