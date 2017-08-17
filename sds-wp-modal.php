@@ -129,10 +129,13 @@ function sds_wp_referrer_modal_sanitize( $option ) {
 				'h5' => array(),
 				'h6' => array(),
 				'i' => array(),
+				'li' => array(),
+				'ol' => array(),
 				'p' => array(
 					'class' => array(),
 				),
 				'strong' => array(),
+				'ul' => array(),
 			);
 	return wp_kses( $option, $allowed_html, $allowed_protocols );
 }
