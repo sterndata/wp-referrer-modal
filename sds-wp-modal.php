@@ -134,7 +134,7 @@ function sds_wp_referrer_modal_sanitize( $option ) {
 				'p' => array(
 					'class' => array(),
 				),
-				'br' -> array(),
+				'br' => array(),
 				'strong' => array(),
 				'ul' => array(),
 			);
