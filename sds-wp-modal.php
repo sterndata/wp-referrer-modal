@@ -134,9 +134,17 @@ function sds_wp_referrer_modal_sanitize( $option ) {
 				'p' => array(
 					'class' => array(),
 				),
-				'br' -> array(),
+				'br' => array(),
 				'strong' => array(),
 				'ul' => array(),
+                                'img' => array(
+					'class' => array(),
+					'src' => array(),
+					'alt' => array(),
+					'title' => array(),
+					'width' => array(),
+					'height' => array(),
+				),
 			);
 	return wp_kses( $option, $allowed_html, $allowed_protocols );
 }
@@ -158,7 +166,11 @@ function sds_wp_referrer_modal_options_page() {
   <h3>Set Title and Body for the modal</h3>
   <p><label for="sds_wp_referrer_modal_title">Title</label><br>
   <input type="text" id="sds_wp_referrer-modal_title" name="sds_wp_referrer_modal_title" value="<?php echo get_option( 'sds_wp_referrer_modal_title' ); ?>" /></p>
-<p> <?php wp_editor( get_option( 'sds_wp_referrer_modal_body' ), 'sds_wp_referrer_modal_body' ); ?> </p>
+<p> <?php
+   $editor_args = array( 
+	'wpautop' => false,
+	); 
+  wp_editor( get_option( 'sds_wp_referrer_modal_body' ), 'sds_wp_referrer_modal_body', $editor_args ); ?> </p>
 	<?php  submit_button(); ?>
   </form>
   </div>
