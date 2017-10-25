@@ -29,12 +29,7 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA	02110-1301, USA.
 */
 
 function sds_wp_referrer_modal_enqueue_scripts() {
-	$the_plugin = plugins_url( '', __FILE__ );
-	wp_enqueue_script( 'jquery-ui-core' );
-	wp_enqueue_script( 'jquery-ui-dialog ' );
-	wp_enqueue_script( 'modal-referrer', $the_plugin . '/modal-referrer.js', array( 'jquery', 'jquery-ui-dialog' ) );
-	wp_enqueue_style( 'jquery-ui' , 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css' );
-	wp_enqueue_style( 'modal-referrer', $the_plugin . '/sds-wp-modal.css', array( 'jquery-ui' ) );
+	wp_enqueue_script( 'modal-referrer', plugins_url( 'modal-referrer.js', __FILE__ ), array(), false, true );
 }
 add_action( 'wp_enqueue_scripts', 'sds_wp_referrer_modal_enqueue_scripts' );
 
@@ -60,21 +55,20 @@ function sds_wp_referrer_modal_filter() {
 	}
 
 ?>
-<div id="sdsModal" class="modal fade" role="dialog">
-<div class="modal-dialog">
-<!-- Modal content-->
-<div class="sds-modal-content">
-<div class="sds-modal-header">
-<h4 class="modal-title"><?php echo stripslashes( $title ); ?></h4>
-</div>
-<div class="modal-body">
-<?php echo stripslashes( $body ); ?>
-</div>
-</div>
-
-</div>
-</div>
-
+<template id="sdsModal">
+	<div class="sdsModal">
+		<link rel="stylesheet" href="<?php echo plugins_url( 'sds-wp-modal.css', __FILE__ ); ?>">
+		<div class="sds-modal-content">
+			<div class="sds-modal-header">
+				<h4 class="modal-title"><?php echo stripslashes( $title ); ?></h4>
+			</div>
+			<div class="modal-body">
+				<?php echo stripslashes( $body ); ?>
+			</div>
+			<button>OK</button>
+		</div>
+	</div>
+</template>
 <?php
 		echo ob_get_clean();
 }
@@ -167,9 +161,9 @@ function sds_wp_referrer_modal_options_page() {
   <p><label for="sds_wp_referrer_modal_title">Title</label><br>
   <input type="text" id="sds_wp_referrer-modal_title" name="sds_wp_referrer_modal_title" value="<?php echo get_option( 'sds_wp_referrer_modal_title' ); ?>" /></p>
 <p> <?php
-   $editor_args = array( 
+   $editor_args = array(
 	'wpautop' => false,
-	); 
+	);
   wp_editor( get_option( 'sds_wp_referrer_modal_body' ), 'sds_wp_referrer_modal_body', $editor_args ); ?> </p>
 	<?php  submit_button(); ?>
   </form>

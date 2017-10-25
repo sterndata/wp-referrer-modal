@@ -1,20 +1,19 @@
-jQuery( document ).ready(function() {
-var ref = document.referrer;
-if (ref.match(/^https?:\/\/([^\/]+\.)?wordpress\.org(\/|$)/i)) {
-  jQuery( function() {
-    jQuery( "#sdsModal").css("display", "block");
-    jQuery( "#sdsModal" ).dialog({
-      modal: true,
-      show: true,
-      width: 'auto',
-      maxWidth: '80%',
-      buttons: {
-        Ok: function() {
-          jQuery( this ).dialog( "close" );
-        }
-      }
-    });
-  } ); 
-} // if ref.match
+window.addEventListener('DOMContentLoaded', function() {
+	const ref = document.referrer;
+	console.log(ref);
+	if (ref.match(/^https?:\/\/(([^\/]+\.)*wordpress\.org|localhost(:\d+))\/.*$/i)) {
+		const tmpl = document.getElementById('sdsModal');
+		const modal = document.importNode(tmpl.content, true);
 
-})
+		const modalElement = modal.firstElementChild;
+		modalElement.id = 'sdsModalImpl';
+
+		const buttons = modal.querySelectorAll('button');
+		for (button of buttons) {
+			button.addEventListener('click', function() {
+				document.getElementById('sdsModalImpl').remove();
+			});
+		}
+		document.body.appendChild(modal);
+	} // if ref.match
+});
