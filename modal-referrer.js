@@ -1,6 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
 	const ref = document.referrer;
-	console.log(ref);
 	if (ref.match(/^https?:\/\/(([^\/]+\.)*wordpress\.org|localhost(:\d+))\/.*$/i)) {
 		const tmpl = document.getElementById('sdsModal');
 		const modal = document.importNode(tmpl.content, true);
