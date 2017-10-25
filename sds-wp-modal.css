@@ -20,12 +20,20 @@
 .sds-modal-header  h4.modal-title {
 	font-weight:bold;
 	font-size: 200%;
+	text-align: center;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	background: #fff;
 }
 .sds-modal-content .modal-body a {
 	text-decoration: underline;
 	font-weight: bold;
 	color: #666;
 }
-.sds-modal-content button.btn.btn-default {
+.sds-modal-content button {
 	padding: 1em;
+	background: #888;
+	float: right;
+	border-radius: 10%;
+	margin-right: 1em;
 }
