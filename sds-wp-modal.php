@@ -3,7 +3,7 @@
  * Plugin Name: WP Referrer Modal
  * Plugin URI:	https://github.com/sterndata/wp-referrer-modal
  * Description: warn about follow homes from wordpress.org
- * Version: 2.0
+ * Version: 3.0
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2

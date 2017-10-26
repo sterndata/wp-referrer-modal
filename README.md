@@ -8,4 +8,6 @@ Tests to see if the access is coming from a link on WordPress.org and, if so, fi
 
 Version 2 uses wp_editor instead of a text area and makes changes to the default CSS for the modal.
 
+Props to @diddledan for the conversion from jQuery to vanilla javascript.
+
 ![Screenshot](screenshot.png?raw=true "Title")
