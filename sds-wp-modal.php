@@ -3,7 +3,7 @@
  * Plugin Name: WP Referrer Modal
  * Plugin URI:	https://github.com/sterndata/wp-referrer-modal
  * Description: warn about follow homes from wordpress.org
- * Version: 3.0
+ * Version: 3.1
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -40,7 +40,6 @@ add_action( 'wp_enqueue_scripts', 'sds_wp_referrer_modal_enqueue_scripts' );
  */
 
 function sds_wp_referrer_modal_filter() {
-	ob_start();
 	$title = get_option( 'sds_wp_referrer_modal_title' );
 	$body = get_option( 'sds_wp_referrer_modal_body' );
 	if ( ! $title ) {
@@ -53,24 +52,26 @@ function sds_wp_referrer_modal_filter() {
 
 		update_option( 'sds_wp_referrer_modal_body', $body );
 	}
-
-?>
+$url =  plugins_url( 'sds-wp-modal.css', __FILE__ );
+$e_title = stripslashes( $title ); 
+$e_body = stripslashes( $body );
+$output =  <<<EOF
 <template id="sdsModal">
 	<div class="sdsModal">
-		<link rel="stylesheet" href="<?php echo plugins_url( 'sds-wp-modal.css', __FILE__ ); ?>">
+		<link rel="stylesheet" href="$url">
 		<div class="sds-modal-content">
 			<div class="sds-modal-header">
-				<h4 class="modal-title"><?php echo stripslashes( $title ); ?></h4>
+				<h4 class="modal-title">$e_title</h4>
 			</div>
 			<div class="modal-body">
-				<?php echo stripslashes( $body ); ?>
+				$e_body;
 			</div>
 			<button>OK</button>
 		</div>
 	</div>
 </template>
-<?php
-		echo ob_get_clean();
+EOF;
+		echo $output;
 }
 add_filter( 'wp_footer', 'sds_wp_referrer_modal_filter' );
 
