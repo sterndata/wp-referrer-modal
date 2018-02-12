@@ -3,7 +3,7 @@
  * Plugin Name: WP Referrer Modal
  * Plugin URI:	https://github.com/sterndata/wp-referrer-modal
  * Description: warn about follow homes from wordpress.org
- * Version: 3.1
+ * Version: 3.0
  * Author: Stern Data Solutions
  * Author URI: http://www.sterndata.com
  * License: Gnu Public License V2
@@ -40,6 +40,7 @@ add_action( 'wp_enqueue_scripts', 'sds_wp_referrer_modal_enqueue_scripts' );
  */
 
 function sds_wp_referrer_modal_filter() {
+	ob_start();
 	$title = get_option( 'sds_wp_referrer_modal_title' );
 	$body = get_option( 'sds_wp_referrer_modal_body' );
 	if ( ! $title ) {
@@ -54,7 +55,6 @@ function sds_wp_referrer_modal_filter() {
 	}
 
 ?>
-$output <<<EOF
 <template id="sdsModal">
 	<div class="sdsModal">
 		<link rel="stylesheet" href="<?php echo plugins_url( 'sds-wp-modal.css', __FILE__ ); ?>">
@@ -69,9 +69,8 @@ $output <<<EOF
 		</div>
 	</div>
 </template>
-EOF;
 <?php
-		echo $output;
+		echo ob_get_clean();
 }
 add_filter( 'wp_footer', 'sds_wp_referrer_modal_filter' );
 
