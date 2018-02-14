@@ -64,7 +64,7 @@ $output =  <<<EOF
 				<h4 class="modal-title">$e_title</h4>
 			</div>
 			<div class="modal-body">
-				$e_body;
+				$e_body
 			</div>
 			<button>OK</button>
 		</div>
