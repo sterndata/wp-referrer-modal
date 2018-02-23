@@ -25,12 +25,12 @@ along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA	02110-1301, USA.
 *******************************/
 
-class WP_Referrer_Modal {
+class SDS_WP_MODAL {
 
 	/**
-	 * WP_Referrer_Modal constructor.
+	 * SDS_WP_MODAL constructor.
 	 *
-	 * @uses WP_Referrer_Modal::init()
+	 * @uses SDS_WP_MODAL::init()
 	 *
 	 * @return void
 	 */
@@ -242,4 +242,4 @@ class WP_Referrer_Modal {
 
 }
 
-new WP_Referrer_Modal();
+new SDS_WP_MODAL();
